@@ -40,18 +40,21 @@ async function resize(url) {
     const width = url.searchParams.get("width") || 0;
     const allowedWidth = allowedWidths.filter(w => {
         if (w === "*") return true;
+        if (w === 0) return true;
         return w === width;
     })
     if (allowedWidth.length === 0) return new Response(`Width (${width}) not allowed. More details here: https://github.com/ArchangelGCA/next-image-transformation-enhanced`, { status: 403 });
     const height = url.searchParams.get("height") || 0;
     const allowedHeight = allowedHeights.filter(h => {
         if (h === "*") return true;
+        if (h === 0) return true;
         return h === height;
     })
     if (allowedHeight.length === 0) return new Response(`Height (${height}) not allowed. More details here: https://github.com/ArchangelGCA/next-image-transformation-enhanced`, { status: 403 });
     const quality = url.searchParams.get("quality") || 75;
     const allowedQuality = allowedQualities.filter(q => {
         if (q === "*") return true;
+        if (q === 75) return true;
         return q === quality;
     })
     if (allowedQuality.length === 0) return new Response(`Quality (${quality}) not allowed. More details here: https://github.com/ArchangelGCA/next-image-transformation-enhanced`, { status: 403 });
