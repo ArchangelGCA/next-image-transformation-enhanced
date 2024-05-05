@@ -6,6 +6,9 @@ services:
     environment:
       - NODE_ENV=production
       - ALLOWED_REMOTE_DOMAINS=*
+      - ALLOWED_WIDTHS=*
+      - ALLOWED_HEIGHTS=*
+      - ALLOWED_QUALITIES=*
       - IMGPROXY_URL=http://imgproxy:8080
     healthcheck:
       test: "wget -qO- http://localhost:3000/health || exit 1"

@@ -24,6 +24,8 @@ https://image.coollabs.io/image/https://cdn.coollabs.io/images/image1.jpg?width=
 1. Login to your [Coolify](https://coolify.io) instance or the [cloud](https://app.coolify.io).
 2. Create a new service and select the `Next.js Image Transformation` template.
 3. Optional: Set the `ALLOWED_REMOTE_DOMAINS` environment variable to the domain of your images (e.g. `example.com,coolify.io`). By default, it is set to `*` which allows any domain.
+4. Optional: Set the `ALLOWED_WIDTHS` and/or `ALLOWED_HEIGHTS` environment variable to the allowed widths for your resized images (e.g. `0,100,500,1000,1500,2000`). By default, it is set to `*` which allows any width.
+5. Optional: Set the `ALLOWED_QUALITIES` environment variable to the allowed qualities for your optimized images (e.g. `50,75,80,100`). By default, it is set to `*` which allows any quality.
 4. Set the your `<domain>` on the `Next Image Transformation` service.
 5. Deploy your service.
 
