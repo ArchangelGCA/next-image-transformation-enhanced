@@ -7,6 +7,13 @@ Steps:
 2. Run `docker-compose up --build`
 3. Service is up and running, you can follow further instructions below.
 
+ALTERNATIVE-Coolify:
+1. Go to Projects -> Environment (pick yours) -> + New -> Public Repository -> Select Server and Destination -> Insert URL of this repository
+2. Setup Build Pack to Docker Compose. 
+3. Edit "Domains for Api" with your domain. 
+4. If necessary, edit your environment variables. 
+5. Deploy.
+
 # Next.js Image Transformation
 
 An open-source & self-hostable image optimization service, a drop-in replacement for Vercel's Image Optimization.

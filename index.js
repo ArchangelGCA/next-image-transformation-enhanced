@@ -1,4 +1,4 @@
-const version = "0.0.3"
+const version = "0.0.1"
 
 let allowedDomains = process?.env?.ALLOWED_REMOTE_DOMAINS?.split(",") || ["*"];
 let allowedWidths = process?.env?.ALLOWED_WIDTHS?.split(",") || ["*"];
@@ -15,18 +15,15 @@ Bun.serve({
     async fetch(req) {
         const url = new URL(req.url);
         if (url.pathname === "/") {
-            return new Response(`<h3>Next Image Transformation v${version}</h3>More info <a href="https://github.com/coollabsio/next-image-transformation">https://github.com/coollabsio/next-image-transformation</a>.`, {
+            return new Response(`<h3>Next Image Transformation Enhanced v${version}</h3>More info <a href="https://github.com/ArchangelGCA/next-image-transformation-enhanced">https://github.com/ArchangelGCA/next-image-transformation-enhanced</a>.`, {
                 headers: {
                     "Content-Type": "text/html",
                 },
             });
         }
-
-        if (url.pathname === "/health") {
-            return new Response("OK");
-        };
+        if (url.pathname === "/health") return new Response("OK");
         if (url.pathname.startsWith("/image/")) return await resize(url);
-        return Response.redirect("https://github.com/coollabsio/next-image-transformation", 302);
+        return Response.redirect("https://github.com/ArchangelGCA/next-image-transformation-enhanced", 302);
     }
 });
 
