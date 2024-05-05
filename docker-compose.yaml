@@ -1,6 +1,9 @@
 services:
   api:
-    image: ghcr.io/coollabsio/next-image-transformation
+    # image: next-image-transformation-enhanced:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3000"
     environment:
