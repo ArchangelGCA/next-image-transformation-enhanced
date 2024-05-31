@@ -11,7 +11,7 @@ ALTERNATIVE-Coolify:
 1. Go to Projects -> Environment (pick yours) -> + New -> Public Repository -> Select Server and Destination -> Insert URL of this repository
 2. Setup Build Pack to Docker Compose. 
 3. Edit "Domains for Api" with your domain. 
-4. If necessary, edit your environment variables. 
+4. If necessary, edit your environment variables (look .env.example for allowed values).
 5. Deploy.
 
 # Next.js Image Transformation
@@ -38,11 +38,11 @@ https://image.coollabs.io/image/https://cdn.coollabs.io/images/image1.jpg?width=
 
 ## How to deploy with Coolify
 1. Login to your [Coolify](https://coolify.io) instance or the [cloud](https://app.coolify.io).
-2. Create a new service and select the `Next.js Image Transformation` template.
+2. Close this repo from git and use Docker Compose for build.
 3. Optional: Set the `ALLOWED_REMOTE_DOMAINS` environment variable to the domain of your images (e.g. `example.com,coolify.io`). By default, it is set to `*` which allows any domain.
 4. Optional: Set the `ALLOWED_WIDTHS` and/or `ALLOWED_HEIGHTS` environment variable to the allowed widths for your resized images (e.g. `0,100,500,1000,1500,2000`). By default, it is set to `*` which allows any width.
 5. Optional: Set the `ALLOWED_QUALITIES` environment variable to the allowed qualities for your optimized images (e.g. `50,75,80,100`). By default, it is set to `*` which allows any quality.
-4. Set the your `<domain>` on the `Next Image Transformation` service.
+4. Set Domains for Api to your `domain`.
 5. Deploy your service.
 
 ## How to use in Next.js
