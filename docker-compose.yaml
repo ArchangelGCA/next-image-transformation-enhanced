@@ -13,23 +13,25 @@ services:
       - ALLOWED_HEIGHTS=${ALLOWED_HEIGHTS}
       - ALLOWED_QUALITIES=${ALLOWED_QUALITIES}
       - IMGPROXY_URL=${IMGPROXY_URL}
-    #healthcheck:
-    #  test: "wget -qO- http://localhost:3000/health || exit 1"
-    #  interval: 2s
-    #  timeout: 10s
-    #  retries: 5
-    #depends_on:
-    #  imgproxy:
-    #    condition: service_healthy
+    healthcheck:
+      test: "wget -qO- http://localhost:3000/health || exit 1"
+      interval: 2s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      imgproxy:
+        condition: service_healthy
   imgproxy:
     image: darthsim/imgproxy
     environment:
       - IMGPROXY_ENABLE_WEBP_DETECTION=true
-      - IMGPROXY_ENABLE_AVIF_DETECTION=true
       - IMGPROXY_JPEG_PROGRESSIVE=true
       - IMGPROXY_USE_ETAG=true
-    #healthcheck:
-    #  test: [ "CMD", "imgproxy", "health" ]
-    #  interval: 2s
-    #  timeout: 10s
-    #  retries: 5
+    healthcheck:
+      test:
+        - CMD
+        - imgproxy
+        - health
+      interval: 2s
+      timeout: 10s
+      retries: 5
